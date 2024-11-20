@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <title>Tizim Bo'limlari</title>
+    <style>
+        .back-button {
+            position: absolute;
+            left: 1.5rem;
+            top: 50%;
+            transform: translateY(-50%);
+            background: #4CAF50;
+            border: none;
+            color: white;
+            cursor: pointer;
+            font-size: 1.5rem;
+            padding: 0.5rem 1rem;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .back-button:hover {
+            background-color: #388E3C;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #f0f8ff;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            transition: background-color 0.5s, color 0.5s;
+            user-select: none; /* Disable text selection */
+        }
+        body.dark-mode {
+            background-color: #333;
+            color: #e6f7ff;
+        }
+        header {
+            background: linear-gradient(90deg, #4CAF50, #2E8B57);
+            padding: 1.5rem;
+            text-align: center;
+            color: white;
+            font-size: 2.5rem;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            position: relative;
+        }
+        .dark-mode-toggle {
+            position: absolute;
+            right: 1.5rem;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            color: white;
+            cursor: pointer;
+            font-size: 1.8rem;
+            transition: transform 0.3s;
+        }
+        .dark-mode-toggle:hover {
+            transform: scale(1.2);
+        }
+        nav.bottom-menu {
+            background-color: #4CAF50;
+            overflow: hidden;
+            display: flex;
+            justify-content: space-around;
+            padding: 1.5rem 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.3);
+            transition: background-color 0.5s;
+        }
+        nav.bottom-menu a {
+            color: white;
+            text-decoration: none;
+            padding: 1.5rem 2.5rem;
+            transition: background-color 0.3s;
+            text-align: center;
+            flex-grow: 1;
+            font-size: 1.2rem;
+            border-radius: 15px;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+        }
+        nav.bottom-menu a:hover {
+            background-color: #333;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+        nav.bottom-menu a i {
+            font-size: 2rem; /* Make icons larger */
+        }
+        main {
+            padding: 2rem;
+            padding-bottom: 10rem;
+            transition: color 0.5s;
+        }
+        section {
+            background-color: white;
+            margin-bottom: 2.5rem;
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 0 35px rgba(0, 0, 0, 0.15);
+            text-align: center;
+            transition: background-color 0.5s, box-shadow 0.3s;
+        }
+        body.dark-mode section {
+            background-color: #444;
+            box-shadow: 0 0 25px rgba(0, 0, 0, 0.5);
+        }
+        h2 {
+            color: #2E8B57;
+            margin-bottom: 1.5rem;
+            transition: color 0.5s;
+        }
+        body.dark-mode h2 {
+            color: #a5d6a7;
+        }
+        .icon-container {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 2.5rem;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+        .icon {
+            background: linear-gradient(135deg, #e0f7fa, #ffffff);
+            padding: 3.5rem;
+            border-radius: 25px;
+            width: 220px;
+            height: 220px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.15);
+            transition: transform 0.4s, box-shadow 0.4s;
+            cursor: pointer;
+        }
+        body.dark-mode .icon {
+            background: linear-gradient(135deg, #555, #333);
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+        }
+        .icon:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 40px rgba(0, 0, 0, 0.3);
+        }
+        .icon i {
+            font-size: 4.5rem; /* Reduced icon size */
+            color: #2E8B57;
+        }
+        body.dark-mode .icon i {
+            color: #a5d6a7;
+        }
+        .icon-label {
+            margin-top: 1rem;
+            font-size: 1.8rem;
+            margin-top: 0.8rem;
+            font-weight: bold;
+            color: #2E8B57;
+            transition: color 0.5s;
+        }
+        body.dark-mode .icon-label {
+            color: #a5d6a7;
+        }
+        .tasbih-container {
+            display: inline-flex;
+            flex-direction: column;
+            align-items: center;
+            background: radial-gradient(circle, #fff, #e6f7ff);
+            padding: 2.5rem;
+            border-radius: 50%;
+            width: 260px;
+            height: 260px;
+            box-shadow: 0 0 25px rgba(0, 0, 0, 0.15);
+            transition: background-color 0.5s, transform 0.2s;
+            user-select: none; /* Disable text selection */
+            position: relative;
+        }
+        body.dark-mode .tasbih-container {
+            background: radial-gradient(circle, #555, #333);
+            box-shadow: 0 0 25px rgba(0, 0, 0, 0.5);
+        }
+        .tasbih-container:active {
+            transform: scale(1.05);
+        }
+        #zikr-text {
+            font-size: 2.5rem;
+            color: #2E8B57;
+            margin-bottom: 1.5rem;
+            transition: color 0.5s;
+        }
+        body.dark-mode #zikr-text {
+            color: #a5d6a7;
+        }
+        #zikr-count {
+            font-size: 3.5rem;
+            color: #FF5722;
+            margin-bottom: 1.5rem;
+            transition: color 0.5s;
+        }
+        body.dark-mode #zikr-count {
+            color: #ff8a65;
+        }
+        .zikr-icons {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+            position: absolute;
+            bottom: 10px;
+        }
+        .zikr-icon-button {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 1.5rem; /* Reduced icon size */
+            padding: 0.5rem;
+            border-radius: 50%;
+            transition: transform 0.3s;
+            color: #2E8B57;
+        }
+        .zikr-icon-button:hover {
+            transform: scale(1.2);
+        }
+        body.dark-mode .zikr-icon-button {
+            color: #a5d6a7;
+        }
+    </style>
+    <script>
+        function nextZikr() {
+            const zikrs = ["Subhanolloh", "Allohu Akbar", "Astaghfirulloh "];
+            let count = 0;
+            const zikrText = document.getElementById('zikr-text');
+            const zikrCount = document.getElementById('zikr-count');
+            zikrText.innerText = zikrs[count];
+            zikrCount.innerText = 33;
+
+            document.querySelector('.tasbih-container').addEventListener('click', function (event) {
+                if (event.target.closest('.zikr-icon-button')) {
+                    return;
+                }
+                this.classList.add('active');
+                setTimeout(() => this.classList.remove('active'), 200);
+                let remaining = parseInt(zikrCount.innerText);
+                remaining--;
+                zikrCount.innerText = remaining;
+                if (remaining === 0) {
+                    count = (count + 1) % zikrs.length;
+                    zikrText.innerText = zikrs[count];
+                    zikrCount.innerText = 33;
+                }
+            });
+        }
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark-mode');
+        }
+        function resetZikr() {
+            const zikrCount = document.getElementById('zikr-count');
+            zikrCount.innerText = 33;
+        }
+        function toggleSound(button) {
+            const icon = button.querySelector('i');
+            if (icon.classList.contains('fa-volume-up')) {
+                icon.classList.remove('fa-volume-up');
+                icon.classList.add('fa-volume-mute');
+            } else {
+                icon.classList.remove('fa-volume-mute');
+                icon.classList.add('fa-volume-up');
+            }
+        }
+        window.onload = function() {
+            nextZikr();
+            document.getElementById('dark-mode-toggle').addEventListener('click', toggleDarkMode);
+            document.getElementById('reset-zikr').addEventListener('click', resetZikr);
+            document.getElementById('sound-toggle').addEventListener('click', function() {
+                toggleSound(this);
+            });
+        }
+    </script>
+</head>
+<body>
+<header>
+    <button onclick="window.location.href='signin.html'" class="back-button">
+        <i class="fas fa-arrow-left"></i> Orqaga Qaytish
+    </button>
+    <h1>Tizim Bo'limlari</h1>
+    <button id="dark-mode-toggle" class="dark-mode-toggle"><i class="fas fa-adjust"></i></button>
+</header>
+<main>
+    <!-- Zikrlar Sanog'i -->
+    <section class="zikr-container">
+        <h2>Zikrlar Sanog'i</h2>
+        <div class="tasbih-container">
+            <h3 id="zikr-text">Allohu Akbar</h3>
+            <p>Qolgan marta: <span id="zikr-count">33</span></p>
+            <div class="zikr-icons">
+                <button id="sound-toggle" class="zikr-icon-button"><i class="fas fa-volume-up"></i></button>
+                <button id="reset-zikr" class="zikr-icon-button"><i class="fas fa-redo"></i></button>
+            </div>
+        </div>
+    </section>
+    <section>
+        <h2>Bo'limlar</h2>
+        <div class="icon-container">
+            <a href="http://localhost:8080/tonggi" class="icon">
+                <i class="fa-solid fa-sun"></i>
+                <div class="icon-label">Tonggi Zikrlar</div>
+            </a>
+            <a href="http://localhost:8080/kechki" class="icon">
+                <i class="fa-solid fa-moon"></i>
+                <div class="icon-label">Kechki Zikrlar</div>
+            </a>
+            <a href="http://localhost:8080/masjid" class="icon">
+                <i class="fa-solid fa-mosque"></i>
+                <div class="icon-label">Masjid Duolari</div>
+            </a>
+            <a href="http://localhost:8080/namaz" class="icon">
+                <i class="fa-solid fa-hands-praying"></i>
+                <div class="icon-label">Namoz Duolari</div>
+            </a>
+        </div>
+    </section>
+    <section>
+        <h2>Qo'shimcha Bo'limlar</h2>
+        <div class="icon-container">
+            <a href="/hadis" class="icon">
+                <i class="fa-solid fa-book-open"></i>
+                <div class="icon-label">Hadislar</div>
+            </a>
+            <a href="vaqt.html" class="icon">
+                <i class="fa-solid fa-clock"></i>
+                <div class="icon-label">Namoz Vaqtlari</div>
+            </a>
+            <a href="kalendar.html" class="icon">
+                <i class="fa-solid fa-calendar-days"></i>
+                <div class="icon-label">Islomiy Kalendar</div>
+            </a>
+            <a href="kaba.html" class="icon">
+                <i class="fa-solid fa-kaaba"></i>
+                <div class="icon-label">Ka'ba</div>
+            </a>
+        </div>
+    </section>
+</main>
+</body>
+</html>
+</main>
+<nav class="bottom-menu">
+    <a href="tizim.html"><i class="fa-solid fa-book-open"></i><br>Bo'limlar</a>
+    <a href="http://localhost:8080/duolar"><i class="fa-solid fa-hands"></i><br>Duolar</a>
+    <a href="http://localhost:8080/saveDua"><i class="fa-solid fa-star"></i><br>Saqlanganlar</a>
+    <a href="sozlamalar.jsp"><i class="fa-solid fa-gear"></i><br>Sozlamalar</a>
+</nav>
+</body>
+</html>

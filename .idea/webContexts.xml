@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebContextManager">
+    <option name="state">
+      <map>
+        <entry key="file://$PROJECT_DIR$/persistance-2/src/main/webapp/views/add_dua.html" value="file://$PROJECT_DIR$/persistance-2/src/main/webapp/views" />
+        <entry key="file://$PROJECT_DIR$/persistance-2/src/main/webapp/views/duolar.html" value="file://$PROJECT_DIR$/persistance-2/src/main/webapp/views" />
+        <entry key="file://$PROJECT_DIR$/persistance-2/src/main/webapp/views/duolar.jsp" value="file://$PROJECT_DIR$/persistance-2/src/main/webapp/views" />
+        <entry key="file://$PROJECT_DIR$/persistance-2/src/main/webapp/views/hadislar.jsp" value="file://$PROJECT_DIR$/persistance-2/src/main/webapp/views" />
+        <entry key="file://$PROJECT_DIR$/persistance-2/src/main/webapp/views/kechki.jsp" value="file://$PROJECT_DIR$/persistance-2/src/main/webapp/views" />
+        <entry key="file://$PROJECT_DIR$/persistance-2/src/main/webapp/views/mintaqa.html" value="file://$PROJECT_DIR$/persistance-2/src/main/webapp/views" />
+        <entry key="file://$PROJECT_DIR$/persistance-2/src/main/webapp/views/saqlanganlar.html" value="file://$PROJECT_DIR$/persistance-2/src/main/webapp/views" />
+        <entry key="file://$PROJECT_DIR$/persistance-2/src/main/webapp/views/saqlanganlar.jsp" value="file://$PROJECT_DIR$/persistance-2/src/main/webapp/views" />
+        <entry key="file://$PROJECT_DIR$/persistance-2/src/main/webapp/views/signup.html" value="file://$PROJECT_DIR$/persistance-2/src/main/webapp/views" />
+        <entry key="file://$PROJECT_DIR$/persistance-2/src/main/webapp/views/tizim.html" value="file://$PROJECT_DIR$/persistance-2/src/main/webapp/views" />
+        <entry key="file://$PROJECT_DIR$/persistance-2/src/main/webapp/views/tonggi.jsp" value="file://$PROJECT_DIR$/persistance-2/src/main/webapp/views" />
+        <entry key="file://$PROJECT_DIR$/persistance-2/src/main/webapp/views/update_users.html" value="file://$PROJECT_DIR$/persistance-2/src/main/webapp/views" />
+      </map>
+    </option>
+  </component>
+</project>

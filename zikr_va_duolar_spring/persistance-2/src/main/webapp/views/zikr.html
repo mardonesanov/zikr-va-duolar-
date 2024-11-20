@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <title>Zikrlar Ro'yxati</title>
+    <script>
+        function nextZikr() {
+            const zikrs = ["Allohu Akbar", "Astaghfirulloh", "Subhanalloh"];
+            let count = 0;
+            const zikrText = document.getElementById('zikr-text');
+            const zikrCount = document.getElementById('zikr-count');
+            zikrText.innerText = zikrs[count];
+            zikrCount.innerText = 33;
+
+            document.getElementById('zikr-button').addEventListener('click', function () {
+                let remaining = parseInt(zikrCount.innerText);
+                remaining--;
+                zikrCount.innerText = remaining;
+                if (remaining === 0) {
+                    count = (count + 1) % zikrs.length;
+                    zikrText.innerText = zikrs[count];
+                    zikrCount.innerText = 33;
+                }
+            });
+        }
+        window.onload = nextZikr;
+    </script>
+</head>
+<body>
+<header>
+    <h1>Zikr Sanog'i</h1>
+</header>
+<nav class="bottom-menu">
+    <a href="zikr_morning.jsp">Tonggi Zikrlar</a>
+    <a href="zikr_evening.jsp">Kechki Zikrlar</a>
+    <a href="zikr_masjid.jsp">Masjidda O'qiladigan Duolar</a>
+    <a href="zikr_prayer.jsp">Namozdagi Duolar</a>
+</nav>
+<main>
+    <div class="zikr-container">
+        <h2 id="zikr-text">Allohu Akbar</h2>
+        <p>Qolgan marta: <span id="zikr-count">33</span></p>
+        <button id="zikr-button">Takrorlash</button>
+    </div>
+</main>
+</body>
+</html>

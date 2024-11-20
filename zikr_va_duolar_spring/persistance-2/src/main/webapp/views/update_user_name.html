@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <title>Ismni O'zgartirish</title>
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #f3f4f6;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            animation: fadeIn 1s ease;
+        }
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+        .container {
+            background: #ffffff;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            width: 100%;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .container:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+        }
+        h2 {
+            font-weight: 700;
+            color: #007bff;
+            margin-bottom: 20px;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        input[type="text"] {
+            padding: 15px;
+            font-size: 1rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            transition: border-color 0.3s;
+            outline: none;
+        }
+        input[type="text"]:focus {
+            border-color: #007bff;
+        }
+        .btn {
+            padding: 15px;
+            font-size: 1.2rem;
+            color: #ffffff;
+            background: linear-gradient(45deg, #007bff, #0056b3);
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.3s;
+        }
+        .btn:hover {
+            transform: translateY(-5px);
+            background: linear-gradient(45deg, #0056b3, #003d80);
+        }
+        .btn i {
+            margin-right: 10px;
+        }
+        .back-btn {
+            padding: 10px 20px;
+            font-size: 1rem;
+            color: #007bff;
+            background: none;
+            border: 2px solid #007bff;
+            border-radius: 10px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background 0.3s, color 0.3s;
+            margin-top: 20px;
+        }
+        .back-btn:hover {
+            background: #007bff;
+            color: #ffffff;
+        }
+        .back-btn i {
+            margin-right: 8px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h2>Ismingizni O'zgartirish</h2>
+    <form action="/updateUserName" method="post" onsubmit="return confirm('Ismni yangilashni xohlaysizmi?');">
+        <input type="text" name="newName" placeholder="Yangi ismni kiriting" required>
+        <button type="submit" class="btn"><i class="fas fa-save"></i> Saqlash</button>
+    </form>
+    <div style="margin-top: 30px;"></div>
+    <a href="/views/profil.jsp" class="back-btn"><i class="fas fa-arrow-left"></i> Orqaga qaytish</a>
+</div>
+</body>
+</html>

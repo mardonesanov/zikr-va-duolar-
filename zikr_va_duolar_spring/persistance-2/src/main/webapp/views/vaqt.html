@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Namoz Vaqtlari</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+            overflow-x: hidden;
+        }
+        header {
+            background: linear-gradient(to right, #3f51b5, #5c6bc0);
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+        header h1 {
+            font-size: 2.5rem;
+            position: relative;
+            z-index: 2;
+        }
+        header::before {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.15), rgba(0, 0, 0, 0));
+            animation: rotateGradient 10s linear infinite;
+        }
+        @keyframes rotateGradient {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .region {
+            margin-bottom: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+        .region:hover {
+            transform: scale(1.05);
+        }
+        .region h2 {
+            background-color: #3f51b5;
+            color: white;
+            padding: 15px;
+            text-align: center;
+            margin: 0;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .region h2 i {
+            margin-right: 10px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        table th, table td {
+            border: 1px solid #ddd;
+            padding: 15px;
+            text-align: center;
+            font-size: 1rem;
+        }
+        table th {
+            background-color: #5c6bc0;
+            color: white;
+        }
+        table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        .select-region {
+            margin: 20px 0;
+            text-align: center;
+        }
+        .select-region select {
+            padding: 10px;
+            font-size: 1rem;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            outline: none;
+        }
+        .icon {
+            color: #3f51b5;
+            margin-right: 8px;
+        }
+        .toggle-theme {
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            background: #fff;
+            border: none;
+            border-radius: 50%;
+            padding: 10px;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .toggle-theme i {
+            font-size: 1.2rem;
+        }
+    </style>
+    <script>
+        function showRegion() {
+            var region = document.getElementById("regionSelect").value;
+            var regions = document.getElementsByClassName("region");
+            for (var i = 0; i < regions.length; i++) {
+                if (regions[i].id === region || region === "all") {
+                    regions[i].style.display = "block";
+                } else {
+                    regions[i].style.display = "none";
+                }
+            }
+        }
+
+        function toggleTheme() {
+            var body = document.body;
+            var themeButton = document.getElementById("themeToggle");
+            body.classList.toggle("dark-theme");
+            if (body.classList.contains("dark-theme")) {
+                themeButton.innerHTML = '<i class="fas fa-sun"></i>';
+            } else {
+                themeButton.innerHTML = '<i class="fas fa-moon"></i>';
+            }
+        }
+    </script>
+</head>
+<body>
+<header>
+    <h1><i class="fas fa-mosque"></i> O'zbekiston Viloyatlari Namoz Vaqtlari</h1>
+    <button id="themeToggle" class="toggle-theme" onclick="toggleTheme()">
+        <i class="fas fa-moon"></i>
+    </button>
+</header>
+<div class="container">
+    <div class="select-region">
+        <label for="regionSelect"><strong>Viloyatni tanlang:</strong></label>
+        <select id="regionSelect" onchange="showRegion()">
+            <option value="all">Barcha viloyatlar</option>
+            <option value="toshkent">Toshkent</option>
+            <option value="andijon">Andijon</option>
+            <option value="samarqand">Samarqand</option>
+            <option value="buxoro">Buxoro</option>
+            <option value="fargona">Farg'ona</option>
+            <option value="namangan">Namangan</option>
+            <option value="xorazm">Xorazm</option>
+            <option value="qarshi">Qarshi</option>
+            <option value="navoiy">Navoiy</option>
+            <option value="jizzax">Jizzax</option>
+            <option value="surxondaryo">Surxondaryo</option>
+            <option value="qashqadaryo">Qashqadaryo</option>
+        </select>
+    </div>
+    <div class="region" id="toshkent">
+        <h2><i class="fas fa-map-marker-alt"></i> Toshkent <i class="fas fa-star-and-crescent icon"></i></h2>
+        <table>
+            <thead>
+            <tr>
+                <th>Namoz</th>
+                <th>Vaqt</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr><td>Bomdod</td><td>05:30</td></tr>
+            <tr><td>Peshin</td><td>12:45</td></tr>
+            <tr><td>Asr</td><td>16:15</td></tr>
+            <tr><td>Shom</td><td>18:35</td></tr>
+            <tr><td>Xufton</td><td>20:00</td></tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="region" id="andijon">
+        <h2><i class="fas fa-map-marker-alt"></i> Andijon <i class="fas fa-star-and-crescent icon"></i></h2>
+        <table>
+            <thead>
+            <tr>
+                <th>Namoz</th>
+                <th>Vaqt</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr><td>Bomdod</td><td>05:25</td></tr>
+            <tr><td>Peshin</td><td>12:40</td></tr>
+            <tr><td>Asr</td><td>16:10</td></tr>
+            <tr><td>Shom</td><td>18:30</td></tr>
+            <tr><td>Xufton</td><td>19:55</td></tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="region" id="samarqand">
+        <h2><i class="fas fa-map-marker-alt"></i> Samarqand <i class="fas fa-star-and-crescent icon"></i></h2>
+        <table>
+            <thead>
+            <tr>
+                <th>Namoz</th>
+                <th>Vaqt</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr><td>Bomdod</td><td>05:35</td></tr>
+            <tr><td>Peshin</td><td>12:50</td></tr>
+            <tr><td>Asr</td><td>16:20</td></tr>
+            <tr><td>Shom</td><td>18:40</td></tr>
+            <tr><td>Xufton</td><td>20:05</td></tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="region" id="buxoro">
+        <h2><i class="fas fa-map-marker-alt"></i> Buxoro <i class="fas fa-star-and-crescent icon"></i></h2>
+        <table>
+            <thead>
+            <tr>
+                <th>Namoz</th>
+                <th>Vaqt</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr><td>Bomdod</td><td>05:40</td></tr>
+            <tr><td>Peshin</td><td>12:55</td></tr>
+            <tr><td>Asr</td><td>16:25</td></tr>
+            <tr><td>Shom</td><td>18:45</td></tr>
+            <tr><td>Xufton</td><td>20:10</td></tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="region" id="fargona">
+        <h2><i class="fas fa-map-marker-alt"></i> Farg'ona <i class="fas fa-star-and-crescent icon"></i></h2>
+        <table>
+            <thead>
+            <tr>
+                <th>Namoz</th>
+                <th>Vaqt</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr><td>Bomdod</td><td>05:20</td></tr>
+            <tr><td>Peshin</td><td>12:35</td></tr>
+            <tr><td>Asr</td><td>16:05</td></tr>
+            <tr><td>Shom</td><td>18:25</td></tr>
+            <tr><td>Xufton</td><td>19:50</td></tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="region" id="namangan">
+        <h2><i class="fas fa-map-marker-alt"></i> Namangan <i class="fas fa-star-and-crescent icon"></i></h2>
+        <table>
+            <thead>
+            <tr>
+                <th>Namoz</th>
+                <th>Vaqt</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr><td>Bomdod</td><td>05:22</td></tr>
+            <tr><td>Peshin</td><td>12:38</td></tr>
+            <tr><td>Asr</td><td>16:08</td></tr>
+            <tr><td>Shom</td><td>18:28</td></tr>
+            <tr><td>Xufton</td><td>19:52</td></tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="region" id="xorazm">
+        <h2><i class="fas fa-map-marker-alt"></i> Xorazm <i class="fas fa-star-and-crescent icon"></i></h2>
+        <table>
+            <thead>
+            <tr>
+                <th>Namoz</th>
+                <th>Vaqt</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr><td>Bomdod</td><td>05:45</td></tr>
+            <tr><td>Peshin</td><td>13:00</td></tr>
+            <tr><td>Asr</td><td>16:30</td></tr>
+            <tr><td>Shom</td><td>18:50</td></tr>
+            <tr><td>Xufton</td><td>20:15</td></tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="region" id="qarshi">
+        <h2><i class="fas fa-map-marker-alt"></i> Qarshi <i class="fas fa-star-and-crescent icon"></i></h2>
+        <table>
+            <thead>
+            <tr>
+                <th>Namoz</th>
+                <th>Vaqt</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr><td>Bomdod</td><td>05:32</td></tr>
+            <tr><td>Peshin</td><td>12:47</td></tr>
+            <tr><td>Asr</td><td>16:17</td></tr>
+            <tr><td>Shom</td><td>18:37</td></tr>
+            <tr><td>Xufton</td><td>20:02</td></tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="region" id="navoiy">
+        <h2><i class="fas fa-map-marker-alt"></i> Navoiy <i class="fas fa-star-and-crescent icon"></i></h2>
+        <table>
+            <thead>
+            <tr>
+                <th>Namoz</th>
+                <th>Vaqt</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr><td>Bomdod</td><td>05:37</td></tr>
+            <tr><td>Peshin</td><td>12:52</td></tr>
+            <tr><td>Asr</td><td>16:22</td></tr>
+            <tr><td>Shom</td><td>18:42</td></tr>
+            <tr><td>Xufton</td><td>20:07</td></tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="region" id="jizzax">
+        <h2><i class="fas fa-map-marker-alt"></i> Jizzax <i class="fas fa-star-and-crescent icon"></i></h2>
+        <table>
+            <thead>
+            <tr>
+                <th>Namoz</th>
+                <th>Vaqt</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr><td>Bomdod</td><td>05:28</td></tr>
+            <tr><td>Peshin</td><td>12:43</td></tr>
+            <tr><td>Asr</td><td>16:13</td></tr>
+            <tr><td>Shom</td><td>18:33</td></tr>
+            <tr><td>Xufton</td><td>19:58</td></tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="region" id="surxondaryo">
+        <h2><i class="fas fa-map-marker-alt"></i> Surxondaryo <i class="fas fa-star-and-crescent icon"></i></h2>
+        <table>
+            <thead>
+            <tr>
+                <th>Namoz</th>
+                <th>Vaqt</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr><td>Bomdod</td><td>05:33</td></tr>
+            <tr><td>Peshin</td><td>12:48</td></tr>
+            <tr><td>Asr</td><td>16:18</td></tr>
+            <tr><td>Shom</td><td>18:38</td></tr>
+            <tr><td>Xufton</td><td>20:03</td></tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="region" id="qashqadaryo">
+        <h2><i class="fas fa-map-marker-alt"></i> Qashqadaryo <i class="fas fa-star-and-crescent icon"></i></h2>
+        <table>
+            <thead>
+            <tr>
+                <th>Namoz</th>
+                <th>Vaqt</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr><td>Bomdod</td><td>05:34</td></tr>
+            <tr><td>Peshin</td><td>12:49</td></tr>
+            <tr><td>Asr</td><td>16:19</td></tr>
+            <tr><td>Shom</td><td>18:39</td></tr>
+            <tr><td>Xufton</td><td>20:04</td></tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<style>
+    .dark-theme {
+        background-color: #333;
+        color: #f4f4f9;
+    }
+    .dark-theme header {
+        background: linear-gradient(to right, #1a237e, #283593);
+    }
+    .dark-theme table th {
+        background-color: #1a237e;
+    }
+    .dark-theme table tr:nth-child(even) {
+        background-color: #424242;
+    }
+    .dark-theme .toggle-theme {
+        background: #424242;
+        color: #f4f4f9;
+    }
+</style>
+</body>
+</html>

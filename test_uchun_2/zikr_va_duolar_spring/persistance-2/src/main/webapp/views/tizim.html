@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <title>Tizim Bo'limlari</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #e6f7ff;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            transition: background-color 0.5s, color 0.5s;
+        }
+        body.dark-mode {
+            background-color: #333;
+            color: #e6f7ff;
+        }
+        header {
+            background: linear-gradient(90deg, #4CAF50, #2E8B57);
+            padding: 1rem;
+            text-align: center;
+            color: white;
+            font-size: 1.5rem;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            position: relative;
+        }
+        .dark-mode-toggle {
+            position: absolute;
+            right: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            color: white;
+            cursor: pointer;
+            font-size: 1.5rem;
+            transition: transform 0.3s;
+        }
+        .dark-mode-toggle:hover {
+            transform: scale(1.1);
+        }
+        nav.bottom-menu {
+            background-color: #333;
+            overflow: hidden;
+            display: flex;
+            justify-content: space-around;
+            padding: 0.5rem 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.5s;
+        }
+        body.dark-mode nav.bottom-menu {
+            background-color: #222;
+        }
+        nav.bottom-menu a {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            transition: background-color 0.3s;
+            text-align: center;
+            flex-grow: 1;
+        }
+        nav.bottom-menu a:hover {
+            background-color: #575757;
+            border-radius: 5px;
+        }
+        main {
+            padding: 2rem;
+            padding-bottom: 7rem;
+            transition: color 0.5s;
+        }
+        section {
+            background-color: white;
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: background-color 0.5s, box-shadow 0.3s;
+        }
+        body.dark-mode section {
+            background-color: #444;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+        }
+        h2 {
+            color: #2E8B57;
+            margin-bottom: 1rem;
+            transition: color 0.5s;
+        }
+        body.dark-mode h2 {
+            color: #a5d6a7;
+        }
+        .icon-container {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        .icon {
+            background: radial-gradient(circle, #f9f9f9, #e0f7fa);
+            padding: 1.5rem;
+            border-radius: 50%;
+            width: 100px;
+            height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+            cursor: pointer;
+            margin-bottom: 1rem;
+        }
+        body.dark-mode .icon {
+            background: radial-gradient(circle, #555, #333);
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+        }
+        .icon:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 25px rgba(0, 0, 0, 0.2);
+        }
+        .icon i {
+            font-size: 3rem;
+            color: #2E8B57;
+        }
+        body.dark-mode .icon i {
+            color: #a5d6a7;
+        }
+        .icon-label {
+            margin-top: 0.5rem;
+            font-weight: bold;
+            color: #2E8B57;
+            transition: color 0.5s;
+        }
+        body.dark-mode .icon-label {
+            color: #a5d6a7;
+        }
+        .zikr-container {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        .tasbih-container {
+            display: inline-flex;
+            flex-direction: column;
+            align-items: center;
+            background: radial-gradient(circle, #fff, #e6f7ff);
+            padding: 1.5rem;
+            border-radius: 50%;
+            width: 220px;
+            height: 220px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.5s;
+        }
+        body.dark-mode .tasbih-container {
+            background: radial-gradient(circle, #555, #333);
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+        }
+        #zikr-text {
+            font-size: 2rem;
+            color: #2E8B57;
+            margin-bottom: 1rem;
+            transition: color 0.5s;
+        }
+        body.dark-mode #zikr-text {
+            color: #a5d6a7;
+        }
+        #zikr-count {
+            font-size: 3rem;
+            color: #FF5722;
+            margin-bottom: 1rem;
+            transition: color 0.5s;
+        }
+        body.dark-mode #zikr-count {
+            color: #ff8a65;
+        }
+        #zikr-button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            font-size: 1rem;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        body.dark-mode #zikr-button {
+            background-color: #66bb6a;
+        }
+        #zikr-button:hover {
+            background-color: #45a049;
+        }
+    </style>
+    <script>
+        function nextZikr() {
+            const zikrs = ["Allohu Akbar", "Astaghfirulloh", "Subhanalloh"];
+            let count = 0;
+            const zikrText = document.getElementById('zikr-text');
+            const zikrCount = document.getElementById('zikr-count');
+            zikrText.innerText = zikrs[count];
+            zikrCount.innerText = 33;
+
+            document.getElementById('zikr-button').addEventListener('click', function () {
+                let remaining = parseInt(zikrCount.innerText);
+                remaining--;
+                zikrCount.innerText = remaining;
+                if (remaining === 0) {
+                    count = (count + 1) % zikrs.length;
+                    zikrText.innerText = zikrs[count];
+                    zikrCount.innerText = 33;
+                }
+            });
+        }
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark-mode');
+        }
+        window.onload = function() {
+            nextZikr();
+            document.getElementById('dark-mode-toggle').addEventListener('click', toggleDarkMode);
+        }
+    </script>
+</head>
+<body>
+<header>
+    <h1>Tizim Bo'limlari</h1>
+    <button id="dark-mode-toggle" class="dark-mode-toggle"><i class="fas fa-adjust"></i></button>
+</header>
+<main>
+    <!-- Zikrlar Sanog'i -->
+    <section class="zikr-container">
+        <h2>Zikrlar Sanog'i</h2>
+        <div class="tasbih-container">
+            <h3 id="zikr-text">Allohu Akbar</h3>
+            <p>Qolgan marta: <span id="zikr-count">33</span></p>
+            <button id="zikr-button">Takrorlash</button>
+        </div>
+    </section>
+
+    <!-- Admin va Foydalanuvchi uchun Bo'limlar -->
+    <section>
+        <h2>Bo'limlar</h2>
+        <div class="icon-container">
+            <a href="http://localhost:8080/tonggi" class="icon">
+                <i class="fa-solid fa-sun"></i>
+                <div class="icon-label">Tonggi Zikrlar</div>
+            </a>
+            <a href="http://localhost:8080/kechki" class="icon">
+                <i class="fa-solid fa-moon"></i>
+                <div class="icon-label">Kechki Zikrlar</div>
+            </a>
+            <a href="http://localhost:8080/masjid" class="icon">
+                <i class="fa-solid fa-mosque"></i>
+                <div class="icon-label">Masjid Duolari</div>
+            </a>
+            <a href="http://localhost:8080/namaz" class="icon">
+                <i class="fa-solid fa-hands-praying"></i>
+                <div class="icon-label">Namoz Duolari</div>
+            </a>
+        </div>
+    </section>
+
+    <!-- Qo'shimcha Bo'limlar -->
+    <section>
+        <h2>Qo'shimcha Bo'limlar</h2>
+        <div class="icon-container">
+            <a href="/hadis" class="icon">
+                <i class="fa-solid fa-book-open"></i>
+                <div class="icon-label">Hadislar</div>
+            </a>
+            <a href="vaqt.html" class="icon">
+                <i class="fa-solid fa-clock"></i>
+                <div class="icon-label">Namoz Vaqtlari</div>
+            </a>
+            <a href="kalendar.html" class="icon">
+                <i class="fa-solid fa-calendar-days"></i>
+                <div class="icon-label">Islomiy Kalendar</div>
+            </a>
+            <a href="kaba.html" class="icon">
+                <i class="fa-solid fa-kaaba"></i>
+                <div class="icon-label">Ka'ba</div>
+            </a>
+        </div>
+    </section>
+</main>
+<nav class="bottom-menu">
+    <a href="tizim.html"><i class="fa-solid fa-book-open"></i><br>Bo'limlar</a>
+    <a href="http://localhost:8080/duolar"><i class="fa-solid fa-hands"></i><br>Duolar</a>
+    <a href="http://localhost:8080/saveDua"><i class="fa-solid fa-star"></i><br>Saqlanganlar</a>
+    <a href="sozlamalar.jsp"><i class="fa-solid fa-gear"></i><br>Sozlamalar</a>
+</nav>
+</body>
+</html>
